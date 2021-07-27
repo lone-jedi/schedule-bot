@@ -1,0 +1,17 @@
+{
+    "name": "schedulebot/schedulebot",
+    "type": "project",
+    "require": {
+        "php": ">=7.3",
+        "longman/telegram-bot": "*",
+        "mashape/unirest-php": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Schedule\\": "src"
+        },
+        "files": [
+            "config.php"
+        ]
+    }
+}
