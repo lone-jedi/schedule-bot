@@ -48,8 +48,6 @@ class BoardsCommand extends SystemCommand
         // $deep_linking_parameter = $this->getMessage()->getText(true);
         $message = $this->getMessage();
         $userid = $message->getFrom()->getId();
-        $firstname = $message->getFrom()->getFirstName();
-        $lastname = $message->getFrom()->getLastName();
 
         try {
             $user_trello_key = Trello::getUserApiKey($userid);
