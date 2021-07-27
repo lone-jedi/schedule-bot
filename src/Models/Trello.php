@@ -21,4 +21,19 @@ class Trello
             'token' => $this->api_token
         ])->body;
     }
+
+    public static function getUserApiKey(string $user_id) : string
+    {
+        $sql = 'SELECT `trello_token` FROM `users_trello_tokens` WHERE `user_id` = :user_id';
+
+            $user = Settings::get('mysql_connection')->dbQuery($sql, [
+                'user_id' => $user_id
+            ])->fetch();
+
+            if(!isset($user['trello_token'])) {
+                throw new \Exception('Trello API Token for this user not exist');
+            }
+
+            return $user['trello_token'];
+    }
 }

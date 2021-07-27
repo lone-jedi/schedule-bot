@@ -1,2 +1,8 @@
+# Ignore Composer
 /vendor/
+
+# Ignore Config Files
 config.php
+
+# Ignore git push commands
+gitset.txt
