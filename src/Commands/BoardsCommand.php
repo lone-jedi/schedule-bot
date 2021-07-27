@@ -64,9 +64,17 @@ class BoardsCommand extends SystemCommand
 
         $boards = $trello->getBoardList();
 
+        $result = '';
+
+        foreach($boards as $board) {
+            $result .= 'Name: ' . $board->name . PHP_EOL . 
+                        'URL: ' . $board->url . PHP_EOL . 
+                        'Id: ' . $board->id . PHP_EOL . PHP_EOL;
+        }
+
         return Request::sendMessage([
             'chat_id' => $userid,
-            'text' => "Your boards: " . PHP_EOL . $boards
+            'text' => "Your boards: " . PHP_EOL . $result
         ]);
    }
 }
